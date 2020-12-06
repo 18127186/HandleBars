@@ -12,7 +12,9 @@ app.engine('hbs',hbs({
     partialsDir: __dirname 
 }));
 app.set('view engine', 'hbs');
-
+app.get('/',function(req,res){
+  res.sendFile(__dirname + '/index.html');
+})
 app.get('/task4/:name',function(req,res){
     
     name = req.params
