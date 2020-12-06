@@ -15,11 +15,11 @@ app.set('view engine', 'hbs');
 app.set('port',(process.env.PORT || 5000));
 
 app.get('/',function(req,res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.htm');
 })
 
 app.get('/task4',function(req,res){
-  res.sendFile(__dirname + '/task4.html');
+  res.sendFile(__dirname + '/task4.htm');
 })
 
 app.get('/task4/:name',function(req,res){
