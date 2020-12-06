@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
+var hbs = require('express-handlebars');
 
 app.use(express.static(__dirname));
-
-var hbs = require('express-handlebars');
 
 app.engine('hbs',hbs({
     extname:'hbs',
@@ -11,10 +10,18 @@ app.engine('hbs',hbs({
     layoutsDir: __dirname,
     partialsDir: __dirname 
 }));
+
 app.set('view engine', 'hbs');
+app.set('port',(process.env.PORT || 5000));
+
 app.get('/',function(req,res){
   res.sendFile(__dirname + '/index.html');
 })
+
+app.get('/task4',function(req,res){
+  res.sendFile(__dirname + '/task4.html');
+})
+
 app.get('/task4/:name',function(req,res){
     
     name = req.params
@@ -146,6 +153,6 @@ app.get('/task4/:name',function(req,res){
     res.render('task4-hbs',found)
 });
 
-app.listen(5500,function(){
-    console.log('Server is listening on port 5500...');
-})
+app.listen(app.get('port'),function(){
+  console.log("Server is listening on port "+ app.get('port'));
+});
