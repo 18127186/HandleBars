@@ -2,9 +2,9 @@
   "name": "handlebars",
   "version": "1.0.0",
   "description": "",
-  "main": "task4.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node task4.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
